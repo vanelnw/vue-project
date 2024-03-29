@@ -1,31 +1,23 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import App from "./App.vue";
+import VueRouter from "vue-router"; // Import VueRouter here if it's not imported in App.vue
 
-Vue.use(VueRouter)
+Vue.config.productionTip = false;
 
-import HomePage from './pages/HomePage.vue'
-import ProductListPage from './pages/ProductListPage.vue'
+import "./tailwind.css";
 
-Vue.config.productionTip = false
+Vue.use(VueRouter); // Make sure to use VueRouter here
 
-import './tailwind.css'
+// If you have separate routes configuration, import it here and create a router instance
+// import routes from './router'
+// const router = new VueRouter({
+//   routes,
+//   mode: "history",
+// });
 
-
-const routes = [
-  { path: '/', component: HomePage },
-  { path: '/product-list', component: ProductListPage },
-  // { path: '/product/:id', component: ProductDetailsPage, props: true },
-  // { path: '/shopping-cart', component: ShoppingCartPage },
-  // { path: '/dashboard', component: DashboardPage }
-]
-
-const router = new VueRouter({
-  routes,
-  // mode: 'history'
-})
+// Or if you're defining routes directly in App.vue, you don't need to create router here
 
 new Vue({
-  render: h => h(App),
-  router
-}).$mount('#app')
+  render: (h) => h(App),
+  // router, // Uncomment this line if you have a separate router instance
+}).$mount("#app");
